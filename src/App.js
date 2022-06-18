@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import './App.css';
 import Slider from './Slider';
 import SidebarItem from './SidebarItem';
+import Resetfunction from './Resetfunction';
 
-
+const styleobj = {
+  marginTop:'4px',
+  height:'50px',
+  width:'50px',
+  padding:'6px',
+  marginLeft:'35px'
+}
 
 
 const DEFAULT_OPTIONS =
@@ -130,16 +137,17 @@ function App() {
               name={option.name}
               active={index === selectedOptionIndex}
               handleClick={() => setSelectedOptionIndex(index)}
-            />
-          )
-        })}
+              />
+              )
+            })}
+            <Resetfunction/>
       </div>
       <Slider
         min={selectedOption.range.min}
         max={selectedOption.range.max}
         value={selectedOption.value}
         handleChange={handleSliderChange}
-      />
+        />
     </div>
   )
 }
