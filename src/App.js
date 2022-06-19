@@ -2,15 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import Slider from './Slider';
 import SidebarItem from './SidebarItem';
-import Resetfunction from './Resetfunction';
-
-const styleobj = {
-  marginTop:'4px',
-  height:'50px',
-  width:'50px',
-  padding:'6px',
-  marginLeft:'35px'
-}
 
 
 const DEFAULT_OPTIONS =
@@ -94,8 +85,17 @@ const DEFAULT_OPTIONS =
 
   ]
 
-function App() {
+const styleobj = {
+  marginTop: '5px',
+  height: '50px',
+  width: '50px',
+  padding: '6px',
+  marginLeft: '35px',
+  cursor:'pointer'
+}
 
+function App() {
+   
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
 
   const [options, setOptions] = useState(DEFAULT_OPTIONS)
@@ -103,7 +103,7 @@ function App() {
   const selectedOption = options[selectedOptionIndex]
 
   // console.log(selectedOption)
-  console.log(setSelectedOptionIndex)
+  // console.log(setSelectedOptionIndex)
 
   function handleSliderChange({ target }) {
     setOptions(prevOption => {
@@ -121,7 +121,7 @@ function App() {
       return `${option.property}(${option.value}${option.unit})`
     })
 
-    return { filter: filters.join(' ')}
+    return { filter: filters.join(' ') }
   }
 
   return (
@@ -137,17 +137,17 @@ function App() {
               name={option.name}
               active={index === selectedOptionIndex}
               handleClick={() => setSelectedOptionIndex(index)}
-              />
-              )
-            })}
-            <Resetfunction/>
+            />
+          )
+        })}
+        <button type='submit' style={styleobj} onClick={msg}> Reset </button>
       </div>
       <Slider
         min={selectedOption.range.min}
         max={selectedOption.range.max}
         value={selectedOption.value}
         handleChange={handleSliderChange}
-        />
+      />
     </div>
   )
 }
