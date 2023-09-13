@@ -123,6 +123,9 @@ function App() {
 
     return { filter: filters.join(' ') }
   }
+  function imageReset(){
+    setOptions(DEFAULT_OPTIONS)
+  }
 
   return (
     <div className="container">
@@ -140,7 +143,7 @@ function App() {
             />
           )
         })}
-        <button type='submit' style={styleobj} onClick={msg}> Reset </button>
+        <button type='reset' style={styleobj} onClick={imageReset}> Reset </button>
       </div>
       <Slider
         min={selectedOption.range.min}
